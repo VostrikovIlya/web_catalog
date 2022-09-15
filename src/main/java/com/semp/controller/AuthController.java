@@ -29,7 +29,7 @@ public class AuthController {
     }
 
     @PostMapping("/user/save")
-    public ResponseEntity<User> saveUser(@RequestParam User user) {
+    public ResponseEntity<User> saveUser(@RequestBody User user) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/user/save").toUriString());
         return ResponseEntity.created(uri).body(userService.saveUser(user));
     }
